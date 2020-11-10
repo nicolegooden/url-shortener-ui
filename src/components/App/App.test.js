@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import App from './App.js';
-import { getUrls, postUrl } from '../../apiCalls.js';
+import { deleteUrl, getUrls, postUrl } from '../../apiCalls.js';
 jest.mock('../../apiCalls.js');
 
 describe('App', () => {
@@ -70,4 +70,29 @@ describe('App', () => {
     expect(screen.getByText('http://localhost:3001/useshorturl/3')).toBeInTheDocument();
   })
 
+  it('should remove url card if user chooses to delete it', async () => {
+
+    deleteUrl.mockResolvedValueOnce();
+
+    render(<App />)
+
+    const firstTitle = await waitFor(() => screen.getByText('Hey there!'));
+    expect(firstTitle).toBeInTheDocument();
+
+    userEvent.click(screen.getByTestId('1'));
+
+    getUrls.mockResolvedValue({
+      urls: [
+        {
+          id: 2,
+          long_url: 'http://pleaseshortenthislongonemorethanthelastone.org',
+          short_url: 'http://localhost:3001/useshorturl/2',
+          title: 'So, we meet again'
+        }
+      ]
+    })
+
+    await waitFor(() => expect(screen.queryByText('Hey there!')).toBeNull())
+    expect(screen.queryByText('http://superduperlongurlpleaseshortenit.org')).toBeNull();
+  })
 })
