@@ -29,7 +29,18 @@ describe('App', () => {
     render(<App />)
 
     expect(screen.getByText('URL Shortener')).toBeInTheDocument();
+  })
 
+  it('should render any existing urls are added to DOM', async () => {
+    render(<App />)
+
+    const firstTitle = await waitFor(() => screen.getByText('So, we meet again'));
+    expect(firstTitle).toBeInTheDocument();
+    expect(screen.getByText('http://localhost:3001/useshorturl/1')).toBeInTheDocument();
+    expect(screen.getByText('http://superduperlongurlpleaseshortenit.org')).toBeInTheDocument();
+    expect(screen.getByText('Hey there!')).toBeInTheDocument();
+    expect(screen.getByText('http://localhost:3001/useshorturl/2')).toBeInTheDocument();
+    expect(screen.getByText('http://pleaseshortenthislongonemorethanthelastone.org')).toBeInTheDocument();
   })
 
 
