@@ -27,7 +27,6 @@ describe('App', () => {
 
   it('should render App-specific UI', () => {
     render(<App />)
-
     expect(screen.getByText('URL Shortener')).toBeInTheDocument();
   })
 
@@ -43,6 +42,32 @@ describe('App', () => {
     expect(screen.getByText('http://pleaseshortenthislongonemorethanthelastone.org')).toBeInTheDocument();
   })
 
+  it('should render new url that was typed in and submitted', async () => {
 
+    postUrl.mockResolvedValueOnce({
+        id: 3,
+        long_url: 'https://stackoverflow.com/questions/tagged/javascript',
+        short_url: 'http://localhost:3001/useshorturl/3',
+        title: 'stack overflow'
+    })
+
+    render(<App />)
+
+    const firstTitle = await waitFor(() => screen.getByText('So, we meet again'));
+    expect(firstTitle).toBeInTheDocument();
+
+    userEvent.type(screen.getByPlaceholderText('Title...'), 'stack overflow');
+    userEvent.type(screen.getByPlaceholderText('URL to Shorten...'), 'https://stackoverflow.com/questions/tagged/javascript');
+    
+    expect(screen.getByPlaceholderText('Title...')).toHaveValue('stack overflow');
+    expect(screen.getByPlaceholderText('URL to Shorten...')).toHaveValue('https://stackoverflow.com/questions/tagged/javascript');
+    
+    userEvent.click(screen.getByRole('button', {name: 'Shorten Please!'}));
+    
+    const newUrlTitle = await waitFor(() => screen.getByText('stack overflow'));
+    expect(newUrlTitle).toBeInTheDocument();
+    expect(screen.getByText('https://stackoverflow.com/questions/tagged/javascript')).toBeInTheDocument();
+    expect(screen.getByText('http://localhost:3001/useshorturl/3')).toBeInTheDocument();
+  })
 
 })
