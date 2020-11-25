@@ -26,6 +26,8 @@ export class App extends Component {
     })
   }
 
+  //Travis CI is fun
+
   render() {
     return (
       <main className="App">
