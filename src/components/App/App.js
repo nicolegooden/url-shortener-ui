@@ -26,6 +26,8 @@ export class App extends Component {
     })
   }
 
+  //this project rocks
+
   render() {
     return (
       <main className="App">
