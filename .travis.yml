@@ -3,11 +3,11 @@ node_js:
 - node
 notifications:
   email: false
-deploy:
-  provider: heroku
-  api_key:
-    secure: RsCUyVFHmKnBhoEGa9EK3gCQFMXuntyb2JRNna6gUOVXRwTi/93+R1m0jdQjkgcStOBu2Qx0/E7cAwI/0ij0kQR0FJAYb7+icapMSSYEsR3Ak5M7gT6sVqBDMS/Al6cchahCCqmpKycMlZdyuk3UBbW1knnLoruqY3FYuMdyeO0ZYiJx/FObG0T/5CKWxIce3IiI28pIFSzUe2HwxGB1kWL3SM10tL0KLxJKEAOp0nYsvf2gIUMhinmNaNxtpcBZPUX3zxLrbb7jIdPdLngBeLoc77bzlRX8uCJo9wg5DAclX9Ak5TwiADKS2A/zyyNysA+b950Swv4zKbZqnwDomwi458zSEgyHRHlJboRaiykkyBL50XDIUTKqfLSWC351C7fyVA0gSE7XPhagIkX7HyE7Ysqr11tfnmkg57qWNziZ6e8faoSEDhE+LP957blFcTAwDB6VN77pn0ftt/y2et4ALi5ODWdJygdgHtGcdhadfvgqQjgXbtZsn8ddFlT6fKBRfuPBLM86uI6dTiCyHtBWiMt3QaT5yDHjeFNAYvo5dqsGHLATjo6z3J0YT1uZLP2oaLksIKcr6jxayf7YpNFURgjYJ7tEUna3fMB9wKb+7bVZ8r98cNiSROcnCBMqjV1gq87ABJNwKKRB5oQO/qk8PtsNM5k4jS+uHYNvaic=
-  app: url-shortener-ui-ng
-  skip_cleanup: true
-  on:
-    branch: main
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: RsCUyVFHmKnBhoEGa9EK3gCQFMXuntyb2JRNna6gUOVXRwTi/93+R1m0jdQjkgcStOBu2Qx0/E7cAwI/0ij0kQR0FJAYb7+icapMSSYEsR3Ak5M7gT6sVqBDMS/Al6cchahCCqmpKycMlZdyuk3UBbW1knnLoruqY3FYuMdyeO0ZYiJx/FObG0T/5CKWxIce3IiI28pIFSzUe2HwxGB1kWL3SM10tL0KLxJKEAOp0nYsvf2gIUMhinmNaNxtpcBZPUX3zxLrbb7jIdPdLngBeLoc77bzlRX8uCJo9wg5DAclX9Ak5TwiADKS2A/zyyNysA+b950Swv4zKbZqnwDomwi458zSEgyHRHlJboRaiykkyBL50XDIUTKqfLSWC351C7fyVA0gSE7XPhagIkX7HyE7Ysqr11tfnmkg57qWNziZ6e8faoSEDhE+LP957blFcTAwDB6VN77pn0ftt/y2et4ALi5ODWdJygdgHtGcdhadfvgqQjgXbtZsn8ddFlT6fKBRfuPBLM86uI6dTiCyHtBWiMt3QaT5yDHjeFNAYvo5dqsGHLATjo6z3J0YT1uZLP2oaLksIKcr6jxayf7YpNFURgjYJ7tEUna3fMB9wKb+7bVZ8r98cNiSROcnCBMqjV1gq87ABJNwKKRB5oQO/qk8PtsNM5k4jS+uHYNvaic=
+#   app: url-shortener-ui-ng
+#   skip_cleanup: true
+#   on:
+#     branch: main

@@ -12,6 +12,8 @@ export class App extends Component {
     }
   }
 
+  //Travis CI rocks
+
   componentDidMount() {
     getUrls().then((urls) => this.setState({urls: urls.urls}))
   }
